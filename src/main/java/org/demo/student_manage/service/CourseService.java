@@ -4,9 +4,7 @@ import org.demo.student_manage.domain.Course;
 import org.demo.student_manage.domain.DayOfWeek;
 import org.demo.student_manage.domain.Student;
 import org.demo.student_manage.dto.request.CourseCreateDto;
-import org.demo.student_manage.dto.response.StudentFindDto;
 import org.demo.student_manage.repository.CourseRepository;
-import org.demo.student_manage.ui.CoursePrinter;
 
 import java.util.List;
 
@@ -34,7 +32,16 @@ public class CourseService {
 
     public List<Course> find(DayOfWeek dayOfWeek){
 
-        List<Course> courseList = courseRepository.findByDay(dayOfWeek);
+        List<Course> courseList = courseRepository.findCourseByDay(dayOfWeek);
         return courseList;
+    }
+
+    public void updateCourseFee(String studentName, int updateFee) {
+        List<Course> courseList = courseRepository.findCourseByStudentName(studentName);
+
+        for (Course course : courseList) {
+            course.updateFee(updateFee);
+        }
+
     }
 }

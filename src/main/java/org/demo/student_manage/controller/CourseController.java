@@ -41,6 +41,14 @@ public class CourseController {
     }
 
 
+    public void updateFee() {
+        String studentName = inputStudentName();
+        int updateFee = inputCourseFee();
+        courseService.updateCourseFee(studentName, updateFee);
+        coursePrinter.showUpdateFeeMessage();
+    }
+
+
     public void findCourseByDay() {
         DayOfWeek dayOfWeek = inputCourseDay();
         List<Course> coursesList = courseService.find(dayOfWeek);

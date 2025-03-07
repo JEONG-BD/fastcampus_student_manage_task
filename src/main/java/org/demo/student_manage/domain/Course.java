@@ -36,6 +36,10 @@ public class Course {
         return courseTime;
     }
 
+    public void updateFee(int fee){
+        this.fee = fee;
+    }
+
     @Override
     public String toString() {
         return "Course{" +

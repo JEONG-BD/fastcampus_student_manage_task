@@ -15,7 +15,7 @@ public class CourseRepository {
         courseMap.put(course.getCourseName(), course);
     }
     
-    public List<Course> findByDay(DayOfWeek dayOfWeek){
+    public List<Course> findCourseByDay(DayOfWeek dayOfWeek){
         List<Course> courseList = new ArrayList<>();
 
         for (Course course : courseMap.values()) {
@@ -24,6 +24,16 @@ public class CourseRepository {
             System.out.println(course.getStudent().getActivated());
 
             if ((course.getDayOfWeek() == dayOfWeek) && (course.getStudent().getActivated() == true)) {
+                courseList.add(course);
+            }
+        }
+        return courseList;
+    }
+
+    public List<Course> findCourseByStudentName(String studentName) {
+        List<Course> courseList = new ArrayList<>();
+        for (Course course : courseMap.values()) {
+            if(course.getStudent().getName().equals(studentName)){
                 courseList.add(course);
             }
         }

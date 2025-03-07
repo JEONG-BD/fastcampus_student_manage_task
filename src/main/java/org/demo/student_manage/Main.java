@@ -50,11 +50,11 @@ public class Main {
 
             switch (menuNum){
                 case 1:
-                    System.out.println("학생 추가");
+                    System.out.println("과외 학생 추가");
                     studentController.saveStudent();
                     break;
                 case 2:
-                    System.out.println("수업 등록");
+                    System.out.println("괴외 수업 등록");
                     courseController.saveCourse();
                     break;
                 case 3:
@@ -62,12 +62,16 @@ public class Main {
                     courseController.findCourseByDay();
                     break;
                 case 4:
-                    System.out.println("학생 활성화");
+                    System.out.println("과외 학생 활성화");
                     studentController.updateActivated();
                     break;
                 case 5:
-                    System.out.println("학생 비활성화");
+                    System.out.println("과외 학생 비활성화");
                     studentController.updateDeactivated();
+                    break;
+                case 6:
+                    System.out.println("과외 비용 업데이트");
+                    courseController.updateFee();
                     break;
 
             }
