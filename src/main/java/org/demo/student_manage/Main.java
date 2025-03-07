@@ -34,15 +34,18 @@ public class Main {
         final CourseController courseController = new CourseController(courseService, coursePrinter, studentPrinter);
 
         Scanner sc = new Scanner(System.in);
-        System.out.println("1. 학생 추가");
-        System.out.println("2. 수업 등록");
-        System.out.println("3. 요일별 수업 조회");
-        System.out.println("4. 학생 활성화");
-        System.out.println("5. 학생 비활성화");
-        System.out.println("6. 수강료 변경");
-        System.out.println("0. 종료");
+        System.out.println("==================");
+        System.out.println("| 1. 학생 추가");
+        System.out.println("| 2. 수업 등록");
+        System.out.println("| 3. 요일별 수업 조회");
+        System.out.println("| 4. 학생 활성화");
+        System.out.println("| 5. 학생 비활성화");
+        System.out.println("| 6. 수강료 변경");
+        System.out.println("| 0. 종료");
+        System.out.println("==================");
 
         while (true){
+
             int menuNum = sc.nextInt();
             System.out.println("menuNum = " + menuNum);
 
@@ -55,9 +58,19 @@ public class Main {
                     System.out.println("수업 등록");
                     courseController.saveCourse();
                     break;
-                case 0:
-                    System.out.println("종료");
+                case 3:
+                    System.out.println("요일별 수업 조회");
+                    courseController.findCourseByDay();
                     break;
+                case 4:
+                    System.out.println("학생 활성화");
+                    studentController.updateActivated();
+                    break;
+                case 5:
+                    System.out.println("학생 비활성화");
+                    studentController.updateDeactivated();
+                    break;
+
             }
         }
 

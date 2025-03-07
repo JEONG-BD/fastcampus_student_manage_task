@@ -24,4 +24,15 @@ public class StudentService {
         StudentFindDto studentFindDto = new StudentFindDto(findStudent.getName(), findStudent.getAge(), findStudent.getAddress());
         return studentFindDto;
     }
+
+    public void updateActivate(String name) {
+        Student findStudent = studentRepository.find(name).orElseThrow(() -> new IllegalArgumentException());
+        findStudent.updateActivated();
+    }
+
+    public void updateDeactivate(String name) {
+        Student findStudent = studentRepository.find(name).orElseThrow(() -> new IllegalArgumentException());
+        findStudent.updateDeactivated();
+        System.out.println("findStudent = " + findStudent);
+    }
 }

@@ -34,4 +34,26 @@ public class Student {
     public boolean isActivated() {
         return activated;
     }
+
+    public void updateActivated(){
+        if(!this.activated) {
+            this.activated = true;
+        }
+    }
+
+    public void updateDeactivated(){
+        if(this.activated) {
+            this.activated = false;
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", address='" + address + '\'' +
+                ", activated=" + activated +
+                '}';
+    }
 }

@@ -1,11 +1,14 @@
 package org.demo.student_manage.service;
 
 import org.demo.student_manage.domain.Course;
+import org.demo.student_manage.domain.DayOfWeek;
 import org.demo.student_manage.domain.Student;
 import org.demo.student_manage.dto.request.CourseCreateDto;
 import org.demo.student_manage.dto.response.StudentFindDto;
 import org.demo.student_manage.repository.CourseRepository;
 import org.demo.student_manage.ui.CoursePrinter;
+
+import java.util.List;
 
 public class CourseService {
 
@@ -19,7 +22,7 @@ public class CourseService {
 
     public void saveCourse(CourseCreateDto courseCreateDto){
         StudentFindDto findStudentDto = studentService.findStudentByName(courseCreateDto.getStudentName());
-        Student findStudent  = new Student(findStudentDto.getName(),
+        Student findStudent = new Student(findStudentDto.getName(),
                 findStudentDto.getAge(), findStudentDto.getAddress());
 
         Course course = new Course(findStudent,
@@ -29,5 +32,11 @@ public class CourseService {
                 courseCreateDto.getCourseTime());
 
         courseRepository.save(course);
+    }
+
+    public List<Course> find(DayOfWeek dayOfWeek){
+
+        List<Course> courseList = courseRepository.findByDay(dayOfWeek);
+        return courseList;
     }
 }

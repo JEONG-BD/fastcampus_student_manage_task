@@ -19,4 +19,12 @@ public class StudentPrinter {
         System.out.println("== 유효한 입력값이 아닙니다 == ");
     }
 
+    public void showUpdateActivated(){
+        System.out.println("== 학생이 활성화 상태로 변경되었습니다== ");
+    }
+
+    public void showUpdateDeActivated(){
+        System.out.println("== 학생이 비활성화 상태로 변경되었습니다== ");
+    }
+
 }

@@ -35,4 +35,15 @@ public class Course {
     public Long getCourseTime() {
         return courseTime;
     }
+
+    @Override
+    public String toString() {
+        return "Course{" +
+                "student=" + student +
+                ", courseName='" + courseName + '\'' +
+                ", dayOfWeek=" + dayOfWeek +
+                ", fee=" + fee +
+                ", courseTime=" + courseTime +
+                '}';
+    }
 }

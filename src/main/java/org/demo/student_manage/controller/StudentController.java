@@ -32,6 +32,18 @@ public class StudentController {
         System.out.println(findStudent);
     }
 
+    public void updateActivated() {
+        String name = inputStudentName();
+        studentService.updateActivate(name);
+        studentPrinter.showUpdateActivated();
+    }
+
+    public void updateDeactivated() {
+        String name = inputStudentName();
+        studentService.updateDeactivate(name);
+        studentPrinter.showUpdateDeActivated();
+    }
+
     public String inputStudentName(){
         studentPrinter.enterStudentName();
         return sc.nextLine();
@@ -51,4 +63,6 @@ public class StudentController {
         studentPrinter.enterStudentAddress();
         return sc.nextLine();
     }
+
+
 }

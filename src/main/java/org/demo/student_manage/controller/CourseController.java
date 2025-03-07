@@ -1,11 +1,13 @@
 package org.demo.student_manage.controller;
 
+import org.demo.student_manage.domain.Course;
 import org.demo.student_manage.domain.DayOfWeek;
 import org.demo.student_manage.dto.request.CourseCreateDto;
 import org.demo.student_manage.service.CourseService;
 import org.demo.student_manage.ui.CoursePrinter;
 import org.demo.student_manage.ui.StudentPrinter;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class CourseController {
@@ -39,6 +41,15 @@ public class CourseController {
     }
 
 
+    public void findCourseByDay() {
+        DayOfWeek dayOfWeek = inputCourseDay();
+        List<Course> coursesList = courseService.find(dayOfWeek);
+        for (Course course : coursesList) {
+            System.out.println(course);
+        }
+    }
+
+
     public String inputCourseName(){
         coursePrinter.enterCourseName();
         return sc.nextLine();
@@ -57,7 +68,7 @@ public class CourseController {
 
     public int inputCourseFee(){
         while(true){
-            coursePrinter.enterCourseName();
+            coursePrinter.enterCourseFee();
             try {
                 return Integer.parseInt(sc.nextLine());
             } catch (NumberFormatException ex){
@@ -81,9 +92,6 @@ public class CourseController {
         studentPrinter.enterStudentName();
         return sc.nextLine();
     }
-
-
-
 
 
 }
