@@ -6,10 +6,11 @@ public class StudentFindDto {
     private String address;
     private Boolean activated;
 
-    public StudentFindDto(String name, int age, String address) {
+    public StudentFindDto(String name, int age, String address, boolean activated) {
         this.name = name;
         this.age = age;
         this.address = address;
+        this.activated = activated;
 
     }
 

@@ -12,7 +12,6 @@ public class Student {
         if(name == null || name.isEmpty()){
             throw new IllegalArgumentException("이름은 필수입니다");
         }
-
         this.name = name;
         this.age = age;
         this.address = address;
@@ -31,7 +30,7 @@ public class Student {
         return address;
     }
 
-    public boolean isActivated() {
+    public boolean getActivated() {
         return activated;
     }
 

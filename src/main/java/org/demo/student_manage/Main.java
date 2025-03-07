@@ -45,7 +45,6 @@ public class Main {
         System.out.println("==================");
 
         while (true){
-
             int menuNum = sc.nextInt();
             System.out.println("menuNum = " + menuNum);
 

@@ -21,9 +21,7 @@ public class CourseService {
     }
 
     public void saveCourse(CourseCreateDto courseCreateDto){
-        StudentFindDto findStudentDto = studentService.findStudentByName(courseCreateDto.getStudentName());
-        Student findStudent = new Student(findStudentDto.getName(),
-                findStudentDto.getAge(), findStudentDto.getAddress());
+        Student findStudent = studentService.findStudentByName(courseCreateDto.getStudentName());
 
         Course course = new Course(findStudent,
                 courseCreateDto.getCourseName(),

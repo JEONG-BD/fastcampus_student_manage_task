@@ -19,10 +19,13 @@ public class StudentService {
                 student.getAddress()));
     }
 
-    public StudentFindDto findStudentByName(String name) {
+    public Student findStudentByName(String name) {
         Student findStudent = studentRepository.find(name).orElseThrow(() -> new IllegalArgumentException());
-        StudentFindDto studentFindDto = new StudentFindDto(findStudent.getName(), findStudent.getAge(), findStudent.getAddress());
-        return studentFindDto;
+//        StudentFindDto studentFindDto = new StudentFindDto(findStudent.getName(),
+//                findStudent.getAge(),
+//                findStudent.getAddress(),
+//                findStudent.getActivated());
+        return findStudent;
     }
 
     public void updateActivate(String name) {

@@ -19,8 +19,11 @@ public class CourseRepository {
         List<Course> courseList = new ArrayList<>();
 
         for (Course course : courseMap.values()) {
-            if ((course.getDayOfWeek() == dayOfWeek) && (course.getStudent()
-                    .isActivated() == true)) {
+            System.out.println("course = " + course);
+            System.out.println("course.getDayOfWeek() = " + course.getDayOfWeek());
+            System.out.println(course.getStudent().getActivated());
+
+            if ((course.getDayOfWeek() == dayOfWeek) && (course.getStudent().getActivated() == true)) {
                 courseList.add(course);
             }
         }

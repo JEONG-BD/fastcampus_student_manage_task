@@ -1,5 +1,6 @@
 package org.demo.student_manage.controller;
 
+import org.demo.student_manage.domain.Student;
 import org.demo.student_manage.dto.request.StudentCreateDto;
 import org.demo.student_manage.dto.response.StudentFindDto;
 import org.demo.student_manage.service.StudentService;
@@ -28,7 +29,7 @@ public class StudentController {
 
     public void findStudent(){
         String name = inputStudentName();
-        StudentFindDto findStudent = studentService.findStudentByName(name);
+        Student findStudent = studentService.findStudentByName(name);
         System.out.println(findStudent);
     }
 
