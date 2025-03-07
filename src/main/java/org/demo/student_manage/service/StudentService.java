@@ -20,7 +20,7 @@ public class StudentService {
     }
 
     public StudentFindDto findStudentByName(String name) {
-        Student findStudent = studentRepository.find(name);
+        Student findStudent = studentRepository.find(name).orElseThrow(() -> new IllegalArgumentException());
         StudentFindDto studentFindDto = new StudentFindDto(findStudent.getName(), findStudent.getAge(), findStudent.getAddress());
         return studentFindDto;
     }

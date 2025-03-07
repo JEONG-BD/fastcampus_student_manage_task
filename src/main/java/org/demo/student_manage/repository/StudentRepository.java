@@ -4,6 +4,7 @@ import org.demo.student_manage.domain.Student;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 public class StudentRepository {
 
@@ -13,10 +14,8 @@ public class StudentRepository {
         studentMap.put(student.getName(), student);
     }
 
-
-    public Student find(String name) {
-    // TODO Exception
-        return studentMap.get(name);
+    public Optional<Student> find(String name) {
+        return Optional.ofNullable(studentMap.get(name));
 
     }
 }

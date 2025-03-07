@@ -4,7 +4,6 @@ public class StudentFindDto {
     private String name;
     private int age;
     private String address;
-
     private Boolean activated;
 
     public StudentFindDto(String name, int age, String address) {

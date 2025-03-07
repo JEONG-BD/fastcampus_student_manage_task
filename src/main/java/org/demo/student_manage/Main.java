@@ -1,8 +1,12 @@
 package org.demo.student_manage;
 
+import org.demo.student_manage.controller.CourseController;
 import org.demo.student_manage.controller.StudentController;
+import org.demo.student_manage.repository.CourseRepository;
 import org.demo.student_manage.repository.StudentRepository;
+import org.demo.student_manage.service.CourseService;
 import org.demo.student_manage.service.StudentService;
+import org.demo.student_manage.ui.CoursePrinter;
 import org.demo.student_manage.ui.StudentPrinter;
 
 import java.util.Scanner;
@@ -23,6 +27,11 @@ public class Main {
         final StudentPrinter studentPrinter = new StudentPrinter();
         final StudentService studentService = new StudentService(studentRepository);
         final StudentController studentController = new StudentController(studentService, studentPrinter);
+        final CourseRepository courseRepository = new CourseRepository();
+        final CoursePrinter coursePrinter = new CoursePrinter();
+        final CourseService courseService = new CourseService(courseRepository,
+                studentService);
+        final CourseController courseController = new CourseController(courseService, coursePrinter, studentPrinter);
 
         Scanner sc = new Scanner(System.in);
         System.out.println("1. 학생 추가");
@@ -44,7 +53,7 @@ public class Main {
                     break;
                 case 2:
                     System.out.println("수업 등록");
-                    studentController.findStudent();
+                    courseController.saveCourse();
                     break;
                 case 0:
                     System.out.println("종료");
