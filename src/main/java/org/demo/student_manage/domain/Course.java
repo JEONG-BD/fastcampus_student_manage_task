@@ -5,14 +5,15 @@ public class Course {
     private Student student;
     private String courseName;
     private DayOfWeek dayOfWeek;
-    private int fee;
+    //private int fee;
+    private CourseFee fee;
     private Long courseTime;
 
     public Course(Student student, String courseName, DayOfWeek dayOfWeek, int fee, Long courseTime) {
         this.student = student;
         this.courseName = courseName;
         this.dayOfWeek = dayOfWeek;
-        this.fee = fee;
+        this.fee = new CourseFee(fee);
         this.courseTime = courseTime;
     }
 
@@ -29,16 +30,17 @@ public class Course {
     }
 
     public int getFee() {
-        return fee;
+        return this.fee.getFee();
     }
 
     public Long getCourseTime() {
         return courseTime;
     }
 
-    public void updateFee(int fee){
-        this.fee = fee;
+    public void changeFee(int fee){
+        this.fee.changeFee(fee);
     }
+
 
     public String getStudentName(){
         return this.student.getName();

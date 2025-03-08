@@ -47,7 +47,7 @@ public class CourseService {
         List<Course> courseList = courseRepository.findCourseByStudentName(studentName);
 
         for (Course course : courseList) {
-            course.updateFee(updateFee);
+            course.changeFee(updateFee);
         }
 
     }
