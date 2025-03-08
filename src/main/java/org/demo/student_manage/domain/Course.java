@@ -46,6 +46,11 @@ public class Course {
         return this.student.getName();
     }
 
+
+    public boolean isSameDay(DayOfWeek dayOfWeek) {
+        return this.dayOfWeek.equals(dayOfWeek);
+    }
+
     @Override
     public String toString() {
         return "Course{" +

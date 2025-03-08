@@ -1,6 +1,7 @@
 package org.demo.student_manage.service;
 
 import org.demo.student_manage.domain.Course;
+import org.demo.student_manage.domain.CourseList;
 import org.demo.student_manage.domain.DayOfWeek;
 import org.demo.student_manage.domain.Student;
 import org.demo.student_manage.dto.request.CourseCreateDto;
@@ -45,10 +46,7 @@ public class CourseService {
 
     public void updateCourseFee(String studentName, int updateFee) {
         List<Course> courseList = courseRepository.findCourseByStudentName(studentName);
-
-        for (Course course : courseList) {
-            course.changeFee(updateFee);
-        }
-
+        CourseList courseList1 = new CourseList(courseList);
+        courseList1.changeAllCourseFee(updateFee);
     }
 }

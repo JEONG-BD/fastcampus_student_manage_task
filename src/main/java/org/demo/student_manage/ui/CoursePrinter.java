@@ -32,7 +32,7 @@ public class CoursePrinter {
     public void showCourseInfomation(List<CourseFindDto> coursesList){
         for (CourseFindDto course : coursesList) {
             System.out.println("수업 이름 " + course.getCourseName());
-            System.out.println("수압 시간 " + course.getCourseTime());
+            System.out.println("수업 시간 " + course.getCourseTime());
             System.out.println("수업일 " + course.getDayOfWeek());
             System.out.println("수업료 " + course.getFee());
             System.out.println("수업 학생 " + course.getStudentName());
