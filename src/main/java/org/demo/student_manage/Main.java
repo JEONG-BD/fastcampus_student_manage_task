@@ -59,7 +59,7 @@ public class Main {
                     break;
                 case 3:
                     System.out.println("요일별 수업 조회");
-                    courseController.findCourseByDay();
+                    courseController.findCourseByDayV2();
                     break;
                 case 4:
                     System.out.println("과외 학생 활성화");

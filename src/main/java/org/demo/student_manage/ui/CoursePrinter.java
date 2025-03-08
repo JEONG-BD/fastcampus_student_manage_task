@@ -1,5 +1,9 @@
 package org.demo.student_manage.ui;
 
+import org.demo.student_manage.dto.response.CourseFindDto;
+
+import java.util.List;
+
 public class CoursePrinter {
     public void enterCourseName(){
         System.out.println("== 과외 과목을 입력하세요 ==");
@@ -23,6 +27,14 @@ public class CoursePrinter {
 
     public void showUpdateFeeMessage() {
         System.out.println("==비용이 업데이트 되었습니다== ");
-
     }
+
+    public void showCourseInfomation(List<CourseFindDto> coursesList){
+        for (CourseFindDto course : coursesList) {
+            System.out.println("수업 이름 " + course.getCourseName());
+            System.out.println("수압 시간 " + course.getCourseTime());
+            System.out.println("수업일 " + course.getDayOfWeek());
+            System.out.println("수업료 " + course.getFee());
+            System.out.println("수업 학생 " + course.getStudentName());
+        }    }
 }

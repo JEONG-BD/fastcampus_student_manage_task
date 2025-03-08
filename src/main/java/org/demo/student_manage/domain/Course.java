@@ -40,6 +40,10 @@ public class Course {
         this.fee = fee;
     }
 
+    public String getStudentName(){
+        return this.student.getName();
+    }
+
     @Override
     public String toString() {
         return "Course{" +

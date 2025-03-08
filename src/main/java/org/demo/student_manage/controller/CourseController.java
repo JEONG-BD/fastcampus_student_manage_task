@@ -3,6 +3,7 @@ package org.demo.student_manage.controller;
 import org.demo.student_manage.domain.Course;
 import org.demo.student_manage.domain.DayOfWeek;
 import org.demo.student_manage.dto.request.CourseCreateDto;
+import org.demo.student_manage.dto.response.CourseFindDto;
 import org.demo.student_manage.service.CourseService;
 import org.demo.student_manage.ui.CoursePrinter;
 import org.demo.student_manage.ui.StudentPrinter;
@@ -57,6 +58,11 @@ public class CourseController {
         }
     }
 
+    public void findCourseByDayV2() {
+        DayOfWeek dayOfWeek = inputCourseDay();
+        List<CourseFindDto> coursesList = courseService.findV2(dayOfWeek);
+        coursePrinter.showCourseInfomation(coursesList);
+    }
 
     public String inputCourseName(){
         coursePrinter.enterCourseName();
