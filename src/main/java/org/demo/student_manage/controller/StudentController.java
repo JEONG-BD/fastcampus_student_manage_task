@@ -5,6 +5,7 @@ import org.demo.student_manage.dto.request.StudentCreateDto;
 import org.demo.student_manage.dto.response.StudentFindDto;
 import org.demo.student_manage.service.StudentService;
 import org.demo.student_manage.ui.StudentPrinter;
+import org.demo.student_manage.ui.UserInputType;
 
 import java.util.Scanner;
 
@@ -17,6 +18,17 @@ public class StudentController {
     public StudentController(StudentService studentService, StudentPrinter studentPrinter) {
         this.studentService = studentService;
         this.studentPrinter = studentPrinter;
+    }
+
+    public UserInputType getUserInput() {
+        while (true) {
+            try {
+                int value = Integer.parseInt(sc.nextLine());
+                return UserInputType.of(value);
+            } catch (NumberFormatException e) {
+                studentPrinter.showInvalidInputMessage();
+            }
+        }
     }
 
     public void saveStudent(){
