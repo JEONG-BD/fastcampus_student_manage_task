@@ -1,8 +1,7 @@
-package org.demo.student_manage.service;
+package org.demo.student_manage.application.student;
 
 import org.demo.student_manage.domain.Student;
-import org.demo.student_manage.dto.request.StudentCreateDto;
-import org.demo.student_manage.dto.response.StudentFindDto;
+import org.demo.student_manage.application.student.dto.StudentCreateDto;
 import org.demo.student_manage.repository.StudentRepository;
 
 public class StudentService {

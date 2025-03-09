@@ -1,22 +1,28 @@
-package org.demo.student_manage.service;
+package org.demo.student_manage.application.course;
 
+import org.demo.student_manage.application.course.interfaces.CourseCommandRepository;
+import org.demo.student_manage.application.course.interfaces.CourseQueryRepository;
 import org.demo.student_manage.domain.Course;
 import org.demo.student_manage.domain.CourseList;
 import org.demo.student_manage.domain.DayOfWeek;
 import org.demo.student_manage.domain.Student;
-import org.demo.student_manage.dto.request.CourseCreateDto;
-import org.demo.student_manage.dto.response.CourseFindDto;
-import org.demo.student_manage.repository.CourseRepository;
+import org.demo.student_manage.application.course.dto.CourseCreateDto;
+import org.demo.student_manage.application.course.dto.CourseFindDto;
+import org.demo.student_manage.application.student.StudentService;
 
 import java.util.List;
 
 public class CourseService {
 
-    private final CourseRepository courseRepository;
+    private final CourseCommandRepository courseCommandRepository;
+    private final CourseQueryRepository courseQueryRepository;
     private final StudentService studentService;
-    public CourseService(CourseRepository courseRepository,
+    public CourseService(CourseCommandRepository courseCommandRepository,
+                         CourseQueryRepository courseQueryRepository,
                          StudentService studentService) {
-        this.courseRepository = courseRepository;
+
+        this.courseCommandRepository = courseCommandRepository;
+        this.courseQueryRepository = courseQueryRepository;
         this.studentService = studentService;
     }
 
@@ -29,23 +35,23 @@ public class CourseService {
                 courseCreateDto.getFee(),
                 courseCreateDto.getCourseTime());
 
-        courseRepository.save(course);
+        courseCommandRepository.save(course);
     }
 
     public List<Course> find(DayOfWeek dayOfWeek){
 
-        List<Course> courseList = courseRepository.findCourseByDay(dayOfWeek);
+        List<Course> courseList = courseQueryRepository.findCourseByDay(dayOfWeek);
         return courseList;
     }
 
     public List<CourseFindDto> findV2(DayOfWeek dayOfWeek){
 
-        List<Course> courseList = courseRepository.findCourseByDay(dayOfWeek);
+        List<Course> courseList = courseQueryRepository.findCourseByDay(dayOfWeek);
         return courseList.stream().map(CourseFindDto::new).toList();
     }
 
     public void updateCourseFee(String studentName, int updateFee) {
-        List<Course> courseList = courseRepository.findCourseByStudentName(studentName);
+        List<Course> courseList = courseQueryRepository.findCourseByStudentName(studentName);
         CourseList courseList1 = new CourseList(courseList);
         courseList1.changeAllCourseFee(updateFee);
     }

@@ -1,6 +1,6 @@
 package org.demo.student_manage.ui;
 
-import org.demo.student_manage.dto.response.CourseFindDto;
+import org.demo.student_manage.application.course.dto.CourseFindDto;
 
 import java.util.List;
 

@@ -2,9 +2,9 @@ package org.demo.student_manage.controller;
 
 import org.demo.student_manage.domain.Course;
 import org.demo.student_manage.domain.DayOfWeek;
-import org.demo.student_manage.dto.request.CourseCreateDto;
-import org.demo.student_manage.dto.response.CourseFindDto;
-import org.demo.student_manage.service.CourseService;
+import org.demo.student_manage.application.course.dto.CourseCreateDto;
+import org.demo.student_manage.application.course.dto.CourseFindDto;
+import org.demo.student_manage.application.course.CourseService;
 import org.demo.student_manage.ui.CoursePrinter;
 import org.demo.student_manage.ui.StudentPrinter;
 

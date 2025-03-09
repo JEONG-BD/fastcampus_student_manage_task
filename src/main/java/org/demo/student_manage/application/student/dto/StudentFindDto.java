@@ -1,4 +1,4 @@
-package org.demo.student_manage.dto.response;
+package org.demo.student_manage.application.student.dto;
 
 public class StudentFindDto {
     private String name;

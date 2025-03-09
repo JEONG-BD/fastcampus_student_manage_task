@@ -1,4 +1,4 @@
-package org.demo.student_manage.dto.response;
+package org.demo.student_manage.application.course.dto;
 
 import org.demo.student_manage.domain.Course;
 import org.demo.student_manage.domain.DayOfWeek;

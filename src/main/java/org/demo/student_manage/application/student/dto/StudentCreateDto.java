@@ -1,4 +1,4 @@
-package org.demo.student_manage.dto.request;
+package org.demo.student_manage.application.student.dto;
 
 public class StudentCreateDto {
 
